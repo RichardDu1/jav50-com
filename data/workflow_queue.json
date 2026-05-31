@@ -58,5 +58,305 @@
     "role": "game-preservationist",
     "intent": "upscale-cutscene-framerate",
     "status": "completed"
+  },
+  {
+    "topic": "High-FPS Slow Motion for Sports Coaching Videos from 30fps Source",
+    "role": "sports-coach",
+    "intent": "generate-240fps-slow-motion",
+    "status": "pending"
+  },
+  {
+    "topic": "Smooth 60fps YouTube Gaming Montage from 30fps Gameplay Recordings",
+    "role": "gaming-content-creator",
+    "intent": "upscale-to-60fps",
+    "status": "pending"
+  },
+  {
+    "topic": "Real Estate Virtual Tour Frame Interpolation for Smooth Walkthroughs",
+    "role": "real-estate-agent",
+    "intent": "create-smooth-30fps-from-15fps",
+    "status": "pending"
+  },
+  {
+    "topic": "Medical Endoscopy Video Frame Doubling for Enhanced Analysis",
+    "role": "medical-imaging-specialist",
+    "intent": "double-fps-for-diagnosis",
+    "status": "pending"
+  },
+  {
+    "topic": "Old Film Restoration: Interpolating Missing Frames in Damaged Reels",
+    "role": "film-archivist",
+    "intent": "restore-missing-frames",
+    "status": "pending"
+  },
+  {
+    "topic": "Drone Cinematography: Converting 4K 30fps to 4K 60fps for Smooth Aerial Shots",
+    "role": "drone-pilot",
+    "intent": "smooth-aerial-footage",
+    "status": "pending"
+  },
+  {
+    "topic": "Security Camera Footage Frame Interpolation for Clearer Motion Details",
+    "role": "security-analyst",
+    "intent": "enhance-motion-clarity",
+    "status": "pending"
+  },
+  {
+    "topic": "Wedding Video Slow Motion from Standard 24fps to 60fps",
+    "role": "wedding-videographer",
+    "intent": "create-slow-motion-effects",
+    "status": "pending"
+  },
+  {
+    "topic": "Product Demo Videos: Interpolating 15fps Slideshow to 30fps Smooth Animation",
+    "role": "ecommerce-manager",
+    "intent": "smooth-product-demos",
+    "status": "pending"
+  },
+  {
+    "topic": "Scientific High-Speed Camera Footage Frame Rate Reduction for Analysis",
+    "role": "research-scientist",
+    "intent": "reduce-fps-for-analysis",
+    "status": "pending"
+  },
+  {
+    "topic": "Animation Production: Inbetweening Keyframes via AI Interpolation",
+    "role": "2d-animator",
+    "intent": "auto-inbetween-frames",
+    "status": "pending"
+  },
+  {
+    "topic": "Live Streaming 720p 30fps to 1080p 60fps Real-Time Upscaling",
+    "role": "live-streamer",
+    "intent": "real-time-upscale",
+    "status": "pending"
+  },
+  {
+    "topic": "Vintage Game Capture: Interpolating 15fps Retro Gameplay to 60fps",
+    "role": "retro-gaming-enthusiast",
+    "intent": "smooth-retro-gaming",
+    "status": "pending"
+  },
+  {
+    "topic": "Time-Lapse Video Smoothing by Interpolating Between Keyframes",
+    "role": "timelapse-photographer",
+    "intent": "smooth-time-lapse",
+    "status": "pending"
+  },
+  {
+    "topic": "Multi-Camera Sports Event: Synchronizing and Interpolating All Feeds to 60fps",
+    "role": "sports-event-producer",
+    "intent": "sync-and-interpolate",
+    "status": "pending"
+  },
+  {
+    "topic": "Underwater Exploration Video Frame Interpolation for Clearer Wildlife Motion",
+    "role": "marine-biologist",
+    "intent": "enhance-underwater-footage",
+    "status": "pending"
+  },
+  {
+    "topic": "Corporate Training Videos: Converting 10fps Screen Recordings to 30fps",
+    "role": "corporate-trainer",
+    "intent": "smooth-screen-recordings",
+    "status": "pending"
+  },
+  {
+    "topic": "Music Video Production: Interpolating 24fps Footage to 60fps for Slow Motion",
+    "role": "music-video-director",
+    "intent": "high-fps-slow-motion",
+    "status": "pending"
+  },
+  {
+    "topic": "Wildlife Documentary: Frame Interpolation for Animal Movement Analysis",
+    "role": "wildlife-filmmaker",
+    "intent": "analyze-animal-motion",
+    "status": "pending"
+  },
+  {
+    "topic": "Virtual Reality 360 Video: Interpolating 30fps to 90fps for VR Headsets",
+    "role": "vr-content-creator",
+    "intent": "high-fps-vr-video",
+    "status": "pending"
+  },
+  {
+    "topic": "Batch Removal of Cluttered Backgrounds in E-Commerce Product Videos with Consistent Lighting and Shadow Retention",
+    "role": "e-commerce-video-editor",
+    "intent": "batch-background-removal-for-products",
+    "status": "pending"
+  },
+  {
+    "topic": "Real-Time Green Screen Replacement for Live Streaming Presentations Without Chroma Key Hardware",
+    "role": "live-streamer",
+    "intent": "real-time-green-screen-replacement",
+    "status": "pending"
+  },
+  {
+    "topic": "Automatic Background Removal for Interview Videos with Multi-Speaker Detection and Depth-Aware Foreground Isolation",
+    "role": "video-production-manager",
+    "intent": "multi-speaker-background-removal",
+    "status": "pending"
+  },
+  {
+    "topic": "Intelligent Background Removal for Fitness Training Videos That Preserves Gym Equipment and Floor Details",
+    "role": "fitness-content-creator",
+    "intent": "selective-background-preservation",
+    "status": "pending"
+  },
+  {
+    "topic": "High-Throughput Background Removal for User-Generated Content in Social Media Apps with Mobile-Optimized AI Models",
+    "role": "social-media-platform-manager",
+    "intent": "mobile-optimized-batch-removal",
+    "status": "pending"
+  },
+  {
+    "topic": "Automated Background Removal for Real Estate Virtual Tours with Transparent Foreground Overlays for Furniture Editing",
+    "role": "real-estate-videographer",
+    "intent": "transparent-foreground-for-editing",
+    "status": "pending"
+  },
+  {
+    "topic": "Background Removal for Cooking Tutorial Videos That Keeps Hands, Utensils, and Ingredients in Sharp Focus",
+    "role": "food-video-producer",
+    "intent": "fine-detail-preservation",
+    "status": "pending"
+  },
+  {
+    "topic": "One-Click Background Removal for Corporate Headshot Videos with Automatic Posture and Lighting Correction",
+    "role": "hr-manager",
+    "intent": "automated-headshot-video-enhancement",
+    "status": "pending"
+  },
+  {
+    "topic": "Real-Time Background Replacement for Online Education Videos with Dynamic Whiteboard Content Integration",
+    "role": "online-course-creator",
+    "intent": "dynamic-background-replacement-for-education",
+    "status": "pending"
+  },
+  {
+    "topic": "Batch Background Removal for Wedding Video Highlights with Hair and Veil Detail Preservation",
+    "role": "wedding-video-editor",
+    "intent": "hair-and-veil-detail-preservation",
+    "status": "pending"
+  },
+  {
+    "topic": "Automated Background Removal for Surveillance Footage with Foreground Object Tracking and Privacy Masking",
+    "role": "security-system-operator",
+    "intent": "foreground-tracking-and-privacy-masking",
+    "status": "pending"
+  },
+  {
+    "topic": "Background Removal for Music Videos with Complex Lighting and Fast Motion Using Temporal Coherence Models",
+    "role": "music-video-director",
+    "intent": "temporal-coherence-for-fast-motion",
+    "status": "pending"
+  },
+  {
+    "topic": "Selective Background Removal for Sports Highlights That Retains Audience and Field Elements",
+    "role": "sports-broadcast-editor",
+    "intent": "selective-removal-for-sports",
+    "status": "pending"
+  },
+  {
+    "topic": "Automated Background Removal for Product Review Videos with Transparent Background for 3D Model Integration",
+    "role": "product-review-videographer",
+    "intent": "transparent-background-for-3d-integration",
+    "status": "pending"
+  },
+  {
+    "topic": "One-Click Background Removal for Pet Videos with Fur and Tail Detail Preservation",
+    "role": "pet-content-creator",
+    "intent": "fur-and-tail-detail-preservation",
+    "status": "pending"
+  },
+  {
+    "topic": "Real-Time Background Replacement for Virtual Fashion Shows with Garment Segmentation and Dynamic Backgrounds",
+    "role": "fashion-show-producer",
+    "intent": "garment-segmentation-for-virtual-shows",
+    "status": "pending"
+  },
+  {
+    "topic": "Batch Background Removal for Archival Footage Restoration with Automatic Dust and Scratch Detection",
+    "role": "archival-video-restorer",
+    "intent": "archival-restoration-with-dust-removal",
+    "status": "pending"
+  },
+  {
+    "topic": "Automated Background Removal for Medical Training Videos with Surgical Instrument Highlighting",
+    "role": "medical-training-video-producer",
+    "intent": "surgical-instrument-highlighting",
+    "status": "pending"
+  },
+  {
+    "topic": "Background Removal for Virtual Try-On Videos with Real-Time Body Tracking and Garment Warping",
+    "role": "virtual-try-on-developer",
+    "intent": "real-time-body-tracking-for-try-on",
+    "status": "pending"
+  },
+  {
+    "topic": "Selective Background Removal for Drone Footage with Sky Replacement and Object Isolation",
+    "role": "drone-videographer",
+    "intent": "sky-replacement-and-object-isolation",
+    "status": "pending"
+  },
+  {
+    "topic": "Converting 24fps archival corporate training videos to 60fps for smoother playback on modern LMS platforms",
+    "role": "corporate-training-manager",
+    "intent": "improve-video-smoothness",
+    "status": "pending"
+  },
+  {
+    "topic": "Upscaling and interpolating 30fps security footage to 120fps for forensic analysis of fast-moving subjects",
+    "role": "security-analyst",
+    "intent": "enhance-motion-clarity",
+    "status": "pending"
+  },
+  {
+    "topic": "Generating slow-motion replays from 60fps sports broadcasts using frame interpolation to 240fps for coaching review",
+    "role": "sports-coach",
+    "intent": "create-slow-motion-replays",
+    "status": "pending"
+  },
+  {
+    "topic": "Interpolating 15fps time-lapse microscopy videos to 30fps for smoother observation of cellular dynamics",
+    "role": "biomedical-researcher",
+    "intent": "smooth-time-lapse",
+    "status": "pending"
+  },
+  {
+    "topic": "Converting 12fps drone survey footage to 30fps for seamless stitching into 3D models",
+    "role": "surveying-engineer",
+    "intent": "improve-stitching-consistency",
+    "status": "pending"
+  },
+  {
+    "topic": "Enhancing 8fps dashcam recordings to 30fps for clearer incident analysis and insurance claims",
+    "role": "fleet-manager",
+    "intent": "improve-evidence-quality",
+    "status": "pending"
+  },
+  {
+    "topic": "Interpolating 24fps live concert footage to 60fps for immersive VR playback on headsets",
+    "role": "vr-content-creator",
+    "intent": "reduce-motion-judder",
+    "status": "pending"
+  },
+  {
+    "topic": "Upscaling and interpolating 25fps surveillance footage to 50fps to track fast-moving objects like vehicles in parking lots",
+    "role": "security-supervisor",
+    "intent": "enhance-tracking-accuracy",
+    "status": "pending"
+  },
+  {
+    "topic": "Converting 18fps historical film reels to 30fps for digital archiving while preserving original aesthetic",
+    "role": "film-archivist",
+    "intent": "preserve-motion-naturalness",
+    "status": "pending"
+  },
+  {
+    "topic": "Interpolating 10fps animation storyboard videos to 24fps for pre-visualization of motion timing",
+    "role": "animation-director",
+    "intent": "preview-motion-timing",
+    "status": "pending"
   }
 ]
