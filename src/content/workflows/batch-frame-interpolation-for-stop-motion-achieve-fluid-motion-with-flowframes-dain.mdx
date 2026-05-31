@@ -1,0 +1,66 @@
+---
+title: "Batch Frame Interpolation for Stop-Motion: Achieve Fluid Motion with Flowframes & DAIN"
+description: "A comprehensive B2B workflow for stop-motion animators to batch interpolate frames using Flowframes (DAIN/RAFT) and Topaz Video AI, delivering smooth 60fps output from 12fps source footage."
+targetRole: ["stop-motion-animator"]
+targetIntent: ["smooth-stop-motion-with-interpolation"]
+difficulty: "Intermediate"
+setupTime: "30 Minutes"
+costEstimate: "$0 - $20/mo"
+roi: "Saves 10 hours/week"
+toolsUsed: ["flowframes","topaz-video-ai"]
+---
+
+## Batch Frame Interpolation of Stop-Motion Animation Videos to Achieve Fluid Motion
+
+### Overview
+Stop-motion animation traditionally runs at 12-15 fps to reduce workload. However, for modern platforms, 60fps is expected. Frame interpolation (AI-based) can generate intermediate frames, smoothing motion without re-animating. This workflow uses **Flowframes** (free, GPU-accelerated) for batch interpolation and **Topaz Video AI** for optional upscaling and denoising.
+
+### Prerequisites
+- **Hardware**: NVIDIA GPU with at least 6GB VRAM (GTX 1060 or better). For Topaz, 8GB+ recommended.
+- **Software**: 
+  - [Flowframes](https://nmkd.itch.io/flowframes) (free, Windows)
+  - [Topaz Video AI](https://www.topazlabs.com/topaz-video-ai) (trial/paid)
+- **Source Footage**: Export your stop-motion as an image sequence (PNG/TIFF) or a video file (MP4/MOV). Ensure consistent lighting and minimal camera movement.
+
+### Step 1: Prepare Your Source
+- If you have a video, extract frames using FFmpeg or your editing software. Name them sequentially (e.g., `frame_0001.png`).
+- Organize into a single folder per shot.
+
+### Step 2: Batch Interpolation with Flowframes
+1. **Open Flowframes** and select the **DAIN** model (best for stop-motion).
+2. **Input**: Choose your image sequence folder or video file.
+3. **Output**: Set to 60fps (or desired frame rate). Enable "Interpolate N times" and set to 4x (e.g., 15fps → 60fps).
+4. **Batch Processing**: Use the "Batch" tab to add multiple sequences. Flowframes will process them sequentially.
+5. **Settings**: 
+   - Scene Detection: Enable to avoid interpolating across cuts.
+   - GPU: Select your NVIDIA GPU.
+   - Output Format: PNG sequence or video (recommend PNG for quality).
+6. **Start**: Click "Start" and wait. A 10-second clip at 15fps may take 5-10 minutes on a GTX 1080.
+
+### Step 3: Quality Check & Refinement
+- Review interpolated frames for artifacts (warping, ghosting). If present, try the **RAFT** model (slower but more accurate).
+- For problematic shots, manually adjust interpolation factor (e.g., 2x instead of 4x) and use optical flow masking.
+
+### Step 4: Optional Upscaling with Topaz Video AI
+- If your source is low resolution (e.g., 1080p), upscale to 4K using Topaz Video AI.
+- **Batch Import**: Drag all interpolated sequences into Topaz.
+- **Model**: Use "Proteus" for animation (preserves edges). Set output to 4K, 60fps.
+- **Render**: Queue and export. This adds 10-20 minutes per minute of footage.
+
+### Step 5: Final Assembly
+- Import the interpolated image sequences into your video editor (Premiere, DaVinci).
+- Sync audio, add transitions, and export final video.
+
+### Tips for Best Results
+- **Lighting**: Consistent lighting reduces flicker. Use manual exposure.
+- **Camera**: Lock exposure and white balance.
+- **Subject**: Avoid fast motion; interpolation works best with moderate movement.
+- **Post-Processing**: Apply slight denoising to reduce artifacts.
+
+### Troubleshooting
+- **Out of Memory**: Reduce batch size or use lower resolution.
+- **Artifacts**: Increase scene detection sensitivity or use RAFT model.
+- **Slow Processing**: Upgrade GPU or use cloud GPU services (e.g., RunPod).
+
+### Conclusion
+This workflow transforms choppy stop-motion into smooth, high-frame-rate videos suitable for YouTube, Netflix, or social media. Batch processing with Flowframes saves hours of manual work, while Topaz Video AI ensures high resolution. Total time: ~30 minutes setup + processing time.

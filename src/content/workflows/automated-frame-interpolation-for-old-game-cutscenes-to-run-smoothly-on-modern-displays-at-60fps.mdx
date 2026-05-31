@@ -1,0 +1,61 @@
+---
+title: "Automated Frame Interpolation for Old Game Cutscenes to Run Smoothly on Modern Displays at 60fps"
+description: "A step-by-step B2B workflow for game preservationists to upscale and interpolate old game cutscenes to 60fps using Flowframes and RIFE, optimized for batch processing and high-quality output."
+targetRole: ["game-preservationist"]
+targetIntent: ["upscale-cutscene-framerate"]
+difficulty: "Intermediate"
+setupTime: "30 Minutes"
+costEstimate: "$0 - $20/mo"
+roi: "Saves 10 hours/week"
+toolsUsed: ["flowframes","ffmpeg","topaz-video-ai"]
+---
+
+## Automated Frame Interpolation for Old Game Cutscenes
+
+### Overview
+This workflow enables game preservationists to convert low-framerate (e.g., 15-30fps) old game cutscenes into smooth 60fps videos using AI-based frame interpolation. The process is automated for batch processing, ensuring consistent quality and significant time savings.
+
+### Prerequisites
+- **Hardware**: NVIDIA GPU with at least 6GB VRAM (RTX 2060 or better recommended)
+- **Software**: Windows 10/11, Flowframes (free), FFmpeg (free), Topaz Video AI (optional, for upscaling)
+- **Source Files**: Original game cutscene videos (MP4, AVI, MKV, etc.)
+
+### Step 1: Install Required Tools
+1. **Download Flowframes** from [flowframes.co](https://flowframes.co) (free, donationware).
+2. **Install FFmpeg** and add it to system PATH.
+3. (Optional) **Install Topaz Video AI** for upscaling before interpolation.
+
+### Step 2: Prepare Source Videos
+- Organize cutscene files in a single folder.
+- Ensure videos are in a supported format (MP4 recommended).
+- If needed, upscale to 1080p or 4K using Topaz Video AI (batch mode).
+
+### Step 3: Configure Flowframes for Batch Interpolation
+1. Open Flowframes.
+2. Set **Input folder** to your source videos folder.
+3. Set **Output folder** (e.g., `./interpolated`).
+4. Choose **AI model**: `RIFE` (fast) or `DAIN` (higher quality, slower).
+5. Set **Target frame rate**: `60`.
+6. Enable **Batch mode**.
+7. Adjust **Scene detection** threshold (0.3-0.5) to avoid interpolating across cuts.
+8. Click **Start**.
+
+### Step 4: Post-Processing (Optional)
+- Use FFmpeg to merge interpolated clips or add audio tracks.
+- Example command to combine audio from original:
+  ```bash
+  ffmpeg -i interpolated.mp4 -i original.mp4 -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4
+  ```
+
+### Step 5: Quality Check
+- Review output for artifacts (ghosting, warping).
+- If artifacts present, increase scene detection threshold or use DAIN model.
+
+### Tips
+- For best results, use source videos with consistent motion (no rapid cuts).
+- Batch processing can run overnight; monitor VRAM usage.
+- Archive original files before processing.
+
+### Troubleshooting
+- **Out of memory**: Reduce batch size or use RIFE model.
+- **Audio sync issues**: Extract audio separately and re-mux after interpolation.

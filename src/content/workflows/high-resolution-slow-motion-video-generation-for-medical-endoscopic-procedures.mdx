@@ -1,0 +1,57 @@
+---
+title: "High-Resolution Slow-Motion Video Generation for Medical Endoscopic Procedures"
+description: "A step-by-step workflow for medical video editors to interpolate endoscopic video frames using AI-powered tools like Topaz Video AI and Flowframes, achieving high-resolution slow-motion output for detailed surgical analysis."
+targetRole: ["medical-video-editor"]
+targetIntent: ["interpolate-endoscopic-video-frames"]
+difficulty: "Intermediate"
+setupTime: "30 Minutes"
+costEstimate: "$0 - $300/mo"
+roi: "Saves 10 hours/week per procedure"
+toolsUsed: ["topaz-video-ai","flowframes","ffmpeg"]
+---
+
+## High-Resolution Slow-Motion Video Generation for Medical Endoscopic Procedures
+
+This workflow guides medical video editors through generating high-resolution slow-motion videos from endoscopic recordings using AI frame interpolation. The process enhances surgical analysis, training, and documentation.
+
+### Prerequisites
+- **Hardware**: GPU with at least 8GB VRAM (NVIDIA RTX 3060 or better recommended)
+- **Software**: Topaz Video AI (paid), Flowframes (free), FFmpeg (free)
+- **Input**: Endoscopic video in MP4 or MOV format, minimum 30fps
+
+### Step 1: Preprocess Video with FFmpeg
+Extract frames and ensure consistent resolution.
+```bash
+ffmpeg -i input.mp4 -vf "scale=1920:1080,fps=30" -q:v 1 frames/frame_%04d.png
+```
+
+### Step 2: Frame Interpolation with Flowframes
+Flowframes uses RIFE AI for high-quality interpolation.
+1. Open Flowframes and load the frame sequence.
+2. Set output frame rate: 120fps (4x slow-motion).
+3. Enable "High Quality" mode and set GPU to CUDA.
+4. Start interpolation. Output will be a new frame sequence.
+
+### Step 3: Enhance Resolution with Topaz Video AI
+Topaz Video AI upscales and enhances details.
+1. Import the interpolated frame sequence.
+2. Choose model: "Artemis High Quality" for medical detail.
+3. Set output resolution: 4K (3840x2160).
+4. Enable frame interpolation (optional, but not needed if already done).
+5. Export as ProRes or H.265 for medical archival.
+
+### Step 4: Assemble Final Video
+Use FFmpeg to combine frames into a video.
+```bash
+ffmpeg -framerate 120 -i enhanced_frames/frame_%04d.png -c:v libx265 -crf 18 -pix_fmt yuv420p output_slowmo.mp4
+```
+
+### Tips for Medical Use
+- Maintain original aspect ratio to avoid distortion.
+- Use lossless codecs (ProRes) for further editing.
+- For real-time playback, consider 60fps output with 2x slow-motion.
+
+### Troubleshooting
+- **GPU out of memory**: Reduce batch size in Flowframes or use lower resolution.
+- **Artifacts**: Use Topaz Video AI's artifact removal model.
+- **Long processing time**: Enable GPU acceleration in both tools.

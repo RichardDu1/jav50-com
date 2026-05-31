@@ -1,0 +1,71 @@
+---
+title: "Automated Frame Doubling for Low-Frame-Rate Security Camera Footage to Improve Identification"
+description: "A step-by-step guide for security operators to double the frame rate of low-FPS surveillance footage using AI-powered tools, enhancing clarity for suspect identification without manual effort."
+targetRole: ["security-system-operator"]
+targetIntent: ["enhance-security-footage-framerate"]
+difficulty: "Intermediate"
+setupTime: "45 Minutes"
+costEstimate: "$0 - $30/mo"
+roi: "Saves 5 hours/week per operator"
+toolsUsed: ["davinci-resolve-studio","topaz-video-ai","ffmpeg"]
+---
+
+## Automated Frame Doubling for Low-Frame-Rate Security Camera Footage
+
+### Overview
+Security cameras often record at low frame rates (e.g., 5-15 FPS) to save storage, but this makes identifying fast-moving objects difficult. This workflow uses AI frame interpolation to double the frame rate, creating smoother motion and clearer stills for identification.
+
+### Prerequisites
+- **Hardware**: GPU with at least 4GB VRAM (NVIDIA GTX 1060 or better).
+- **Software**: 
+  - [DaVinci Resolve Studio](https://www.blackmagicdesign.com/products/davinciresolve) (paid, $295 one-time) or free version with limited features.
+  - [Topaz Video AI](https://www.topazlabs.com/topaz-video-ai) (paid, $299 one-time or subscription).
+  - [FFmpeg](https://ffmpeg.org/) (free, open-source).
+- **Footage**: Low-frame-rate video file (e.g., 10 FPS, MP4 format).
+
+### Step 1: Prepare Your Footage
+1. Transfer the security camera clip to your workstation.
+2. Use FFmpeg to extract metadata and confirm frame rate:
+   ```bash
+   ffmpeg -i input.mp4
+   ```
+   Look for `Stream #0:0 Video: ... 10 fps`.
+
+### Step 2: Frame Interpolation with Topaz Video AI
+1. Open Topaz Video AI.
+2. Drag and drop your video file.
+3. Under **AI Model**, select **Chronos** (best for motion interpolation).
+4. Set **Output Frame Rate** to double the original (e.g., 20 FPS if original is 10 FPS).
+5. Enable **Motion Deblur** if footage is blurry.
+6. Click **Start** to process. This may take 10-30 minutes depending on GPU.
+7. Export as **ProRes 422** or **H.264** for further editing.
+
+### Step 3: Enhance with DaVinci Resolve Studio (Optional)
+1. Import the interpolated video into DaVinci Resolve.
+2. Go to the **Color** page and apply **Noise Reduction** (use Temporal NR for low-light footage).
+3. Use **Super Scale** (in Clip Attributes) to upscale resolution if needed (e.g., 720p to 1080p).
+4. Export final video as **H.264** with high bitrate (20 Mbps).
+
+### Step 4: Automate with FFmpeg (Advanced)
+For batch processing, create a script:
+```bash
+for f in *.mp4; do
+  ffmpeg -i "$f" -filter:v "minterpolate=fps=30:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1" -c:v libx264 -crf 18 "${f%.*}_doubled.mp4"
+done
+```
+This uses FFmpeg's built-in motion interpolation (slower but free).
+
+### Tips for Best Results
+- Use footage with minimal compression artifacts.
+- For identification, extract still frames from the interpolated video using:
+  ```bash
+  ffmpeg -i output.mp4 -vf "select='not(mod(n,30))'" -vsync vfr frames_%04d.png
+  ```
+- Store original and processed footage separately for audit trails.
+
+### Troubleshooting
+- **Artifacts**: If interpolation creates ghosting, try a lower frame rate multiplier (e.g., 1.5x instead of 2x).
+- **GPU Out of Memory**: Reduce resolution or use CPU mode (slower).
+
+### Conclusion
+Automated frame doubling significantly improves the usability of low-FPS security footage. With Topaz Video AI, you can achieve professional results in minutes, while FFmpeg offers a free alternative for batch processing.

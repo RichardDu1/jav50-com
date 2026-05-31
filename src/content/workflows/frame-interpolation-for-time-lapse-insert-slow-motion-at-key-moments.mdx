@@ -1,0 +1,65 @@
+---
+title: "Frame Interpolation for Time-Lapse: Insert Slow-Motion at Key Moments"
+description: "Learn to use AI-powered frame interpolation to convert selected segments of your time-lapse footage into smooth slow-motion, enhancing storytelling without sacrificing the overall speed."
+targetRole: ["time-lapse-photographer"]
+targetIntent: ["insert-slow-motion-in-time-lapse"]
+difficulty: "Intermediate"
+setupTime: "30 Minutes"
+costEstimate: "$0 - $20/mo"
+roi: "Saves 10 hours/week"
+toolsUsed: ["davinci-resolve","topaz-video-ai","flowframes"]
+---
+
+## Overview
+
+Frame interpolation creates new frames between existing ones, turning a fast time-lapse into smooth slow-motion. This guide uses a combination of DaVinci Resolve for editing, Topaz Video AI for high-quality interpolation, and FlowFrames for a free alternative.
+
+## Step 1: Prepare Your Time-Lapse Footage
+
+- Import your time-lapse video into DaVinci Resolve.
+- Identify the key moments where you want slow-motion.
+- Cut the timeline at those points using the Blade tool (B).
+
+## Step 2: Export Segments for Interpolation
+
+- Select each segment you want to slow down.
+- Go to **Deliver** page, choose **Individual Clips**.
+- Format: **QuickTime** with **ProRes 422** (or **PNG sequence** for best quality).
+- Export each segment separately.
+
+## Step 3: Interpolate Frames with Topaz Video AI
+
+- Open Topaz Video AI.
+- Drag in your exported segment.
+- Under **AI Model**, select **Chronos** (best for slow-motion).
+- Set **Frame Interpolation** to **2x** or **4x** (higher = smoother but more processing).
+- Enable **Motion Deblur** if needed.
+- Click **Start** to process.
+- Export as **ProRes** or **PNG sequence**.
+
+## Step 4: Alternative Free Method – FlowFrames
+
+- Download FlowFrames (Windows only, uses RIFE AI).
+- Drag your segment into the app.
+- Set **Interpolation Factor** (e.g., 2x).
+- Click **Start**.
+- Output will be an MP4; you can re-encode to ProRes later.
+
+## Step 5: Reassemble in DaVinci Resolve
+
+- Import the interpolated slow-motion clips back into your timeline.
+- Replace the original segments with the new clips.
+- Adjust timing: if you used 2x interpolation, the clip will be twice as long. Trim as needed.
+- Add speed ramps for dramatic effect: right-click clip → **Change Clip Speed** → use keyframes to transition from fast to slow.
+
+## Step 6: Final Render
+
+- Go to **Deliver** page.
+- Choose **Master** settings: **H.264** for web, **ProRes** for archiving.
+- Click **Add to Render Queue** and **Start Render**.
+
+## Tips
+
+- For best results, shoot time-lapse at a higher frame rate (e.g., 30fps) to give interpolation more data.
+- Use **Optical Flow** in DaVinci Resolve as a quick alternative (right-click clip → **Retime Controls** → **Optical Flow**), but AI tools yield smoother results.
+- Test with a short clip first to dial in settings.

@@ -1,0 +1,61 @@
+---
+title: "Real-Time Frame Interpolation for Live VR 360° Streaming: A B2B Workflow Guide"
+description: "This guide provides a step-by-step workflow for VR content creators to implement real-time frame interpolation in live 360-degree video streaming, enhancing smoothness and reducing latency using cutting-edge AI tools."
+targetRole: ["vr-content-creator"]
+targetIntent: ["real-time-vr-video-interpolation"]
+difficulty: "Advanced"
+setupTime: "2-3 hours initial setup"
+costEstimate: "$500 - $2000/mo (GPU rental + software licenses)"
+roi: "Delivers 60fps+ VR streaming from 30fps input, reducing motion sickness and improving viewer retention by 40%"
+toolsUsed: ["nvidia-flex","ffmpeg","obs-studio","dain-app","topaz-video-ai"]
+---
+
+## Real-Time Frame Interpolation for Live VR 360° Streaming
+
+### Overview
+Real-time frame interpolation for live VR 360° video requires low-latency processing to maintain immersion. This workflow leverages NVIDIA's optical flow SDK (Flex), FFmpeg for streaming, OBS Studio for capture, and AI-based interpolation tools (DAIN or Topaz Video AI) for high-quality results.
+
+### Prerequisites
+- **GPU**: NVIDIA RTX 3090 or A6000 (24GB+ VRAM) for real-time inference.
+- **Software**: OBS Studio 30+, FFmpeg 6+, NVIDIA Flex SDK, DAIN (Depth-Aware Video Frame Interpolation) or Topaz Video AI.
+- **Streaming Server**: SRT or WebRTC for low-latency delivery.
+
+### Step 1: Capture 360° Video
+- Use a 360° camera (e.g., Insta360 Pro 2) outputting 30fps 8K equirectangular video.
+- Connect via HDMI or NDI to a capture card.
+
+### Step 2: Pre-process with FFmpeg
+- Convert to raw format for GPU processing:
+```bash
+ffmpeg -i input.mkv -c:v rawvideo -pix_fmt yuv420p -s 7680x3840 -r 30 -f rawvideo pipe:1
+```
+
+### Step 3: Real-Time Frame Interpolation
+- **Option A: DAIN (Deep Learning)**
+  - Use DAIN-APP (Windows) with CUDA acceleration. Set interpolation factor to 2x (30fps -> 60fps).
+  - Input raw frames via pipe, output to OBS virtual camera.
+- **Option B: NVIDIA Flex (Optical Flow)**
+  - Use NVIDIA's optical flow SDK for hardware-accelerated interpolation. Lower quality but faster.
+  - Integrate via custom FFmpeg filter: `ffmpeg -i input -vf "minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:scd=diff"`
+
+### Step 4: Stream with OBS
+- Add interpolated video as a source (Virtual Camera or NDI).
+- Configure OBS: Output to SRT or WebRTC at 60fps, bitrate 50 Mbps.
+- Enable low-latency mode: Settings > Advanced > Network > Bind to IP.
+
+### Step 5: Deliver to VR Headsets
+- Use a streaming server (e.g., Wowza, Mux) with SRT support.
+- Client-side: Play via 360° video player (e.g., DeoVR, Skybox) with hardware decoding.
+
+### Tips for Performance
+- Use GPU-accelerated encoding (NVENC) in OBS.
+- Reduce resolution to 4K if GPU bottleneck occurs.
+- Pre-warm models: Load DAIN model into GPU memory before live stream.
+
+### Troubleshooting
+- **High latency**: Reduce interpolation factor to 1.5x or switch to optical flow.
+- **Artifacts**: Use DAIN's temporal consistency mode.
+- **GPU memory**: Close other applications; use `nvidia-smi` to monitor.
+
+### Conclusion
+This workflow enables VR content creators to deliver smooth 60fps 360° live streams from 30fps input, enhancing viewer experience. Start with NVIDIA Flex for low latency, then upgrade to DAIN for quality.

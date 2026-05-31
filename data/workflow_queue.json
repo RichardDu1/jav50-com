@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "High-FPS Slow-Motion Replay for Sports Analysis Using Frame Interpolation",
+    "role": "sports-analyst",
+    "intent": "generate-high-fps-slow-motion-replays",
+    "status": "completed"
+  },
+  {
+    "topic": "Seamless 60fps Conversion of Vintage 24fps Film Footage for Streaming Platforms",
+    "role": "video-restoration-specialist",
+    "intent": "convert-24fps-to-60fps-vintage-film",
+    "status": "completed"
+  },
+  {
+    "topic": "Real-Time Frame Interpolation for Live Virtual Reality 360-Degree Video Streaming",
+    "role": "vr-content-creator",
+    "intent": "real-time-vr-video-interpolation",
+    "status": "completed"
+  },
+  {
+    "topic": "Automated Frame Doubling for Low-Frame-Rate Security Camera Footage to Improve Identification",
+    "role": "security-system-operator",
+    "intent": "enhance-security-footage-framerate",
+    "status": "completed"
+  },
+  {
+    "topic": "High-Resolution Slow-Motion Video Generation for Medical Endoscopic Procedures",
+    "role": "medical-video-editor",
+    "intent": "interpolate-endoscopic-video-frames",
+    "status": "completed"
+  },
+  {
+    "topic": "Batch Frame Interpolation of Stop-Motion Animation Videos to Achieve Fluid Motion",
+    "role": "stop-motion-animator",
+    "intent": "smooth-stop-motion-with-interpolation",
+    "status": "completed"
+  },
+  {
+    "topic": "Frame Interpolation for Drone Cinematography to Create Ultra-Smooth Aerial Tracking Shots",
+    "role": "drone-videographer",
+    "intent": "smooth-drone-footage-with-interpolation",
+    "status": "completed"
+  },
+  {
+    "topic": "Real-Time Frame Interpolation in Video Conferencing to Reduce Motion Blur on Low-Bandwidth Connections",
+    "role": "video-conference-software-developer",
+    "intent": "reduce-motion-blur-in-video-calls",
+    "status": "completed"
+  },
+  {
+    "topic": "Frame Interpolation for Time-Lapse Videos to Create Slow-Motion Sections at Key Moments",
+    "role": "time-lapse-photographer",
+    "intent": "insert-slow-motion-in-time-lapse",
+    "status": "completed"
+  },
+  {
+    "topic": "Automated Frame Interpolation for Old Game Cutscenes to Run Smoothly on Modern Displays at 60fps",
+    "role": "game-preservationist",
+    "intent": "upscale-cutscene-framerate",
+    "status": "completed"
+  }
+]
