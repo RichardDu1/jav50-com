@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const allGenerators = await getCollection('generators');
+const sortedGenerators = allGenerators.sort((a, b) => a.data.rank - b.data.rank);
+
+const pageTitle = 'Top 50 AI Video Generators Ranked | JAV50';
+const pageDescription = 'The complete Top 50 leaderboard of the best AI video generators, benchmarked for realism, motion coherence, and prompt adherence.';
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://jav50.com/en/generators/"
+>
+  <main class="bg-surface text-text min-h-screen py-24">
+    <div class="container max-w-5xl mx-auto px-6">
+      
+      <header class="mb-16 text-center">
+        <h1 class="text-5xl md:text-6xl font-black text-white mb-6 tracking-tighter">The <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">JAV50</span> Leaderboard</h1>
+        <p class="text-xl text-muted max-w-2xl mx-auto">Our continuously updated ranking of the Top 50 AI video models in the world.</p>
+      </header>
+
+      <div class="bg-neutral rounded-2xl border border-border overflow-hidden shadow-2xl">
+        <div class="grid grid-cols-12 bg-black border-b border-border text-xs uppercase tracking-widest font-bold text-muted p-6">
+          <div class="col-span-2 text-center">Rank</div>
+          <div class="col-span-4">Model Name</div>
+          <div class="col-span-3 hidden md:block">Generation Type</div>
+          <div class="col-span-3 text-right">Max Quality</div>
+        </div>
+        
+        <div class="divide-y divide-border">
+          {sortedGenerators.length > 0 ? sortedGenerators.map(gen => (
+            <a href={`/en/generators/${gen.id.split('/').pop()}`} class="grid grid-cols-12 p-6 items-center hover:bg-[#1a1a1c] transition-colors group">
+              <div class="col-span-2 text-center">
+                <span class={`text-3xl font-black ${gen.data.rank <= 3 ? 'text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent' : 'text-muted'}`}>
+                  #{gen.data.rank}
+                </span>
+              </div>
+              <div class="col-span-8 md:col-span-4">
+                <h3 class="font-bold text-xl text-white group-hover:text-primary transition-colors">{gen.data.title}</h3>
+                <span class="text-xs text-muted block mt-1">{gen.data.pricing}</span>
+              </div>
+              <div class="col-span-3 hidden md:block text-muted text-sm">
+                {gen.data.videoType}
+              </div>
+              <div class="col-span-2 md:col-span-3 text-right text-white font-bold">
+                {gen.data.maxResolution}
+              </div>
+            </a>
+          )) : (
+            <div class="p-16 text-center text-primary animate-pulse font-bold text-lg">
+              Compiling the Top 50 list...
+            </div>
+          )}
+        </div>
+      </div>
+      
+    </div>
+  </main>
+</BaseLayout>
