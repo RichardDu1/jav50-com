@@ -1,70 +1,36 @@
 @import "tailwindcss";
 
-/* === TRUE BESPOKE REDESIGN: JAV50 SIGNAL ENGINE ===
-   Aesthetic: Cinematic Dark / AI Video Generator
-   Vibe: Pure Black, Deep Purple, Neon Pink === */
-
 @theme {
-  --color-primary: #A855F7; /* Purple 500 */
-  --color-primary-dark: #7E22CE;
-  --color-secondary: #1E3A5F;
-  --color-accent: #EC4899;  /* Pink 500 */
+  --color-primary-500: #f43f5e;
+  --color-primary-600: #e11d48;
+  --color-dark: #050505;
+  --color-card: #111111;
   
-  --color-surface: #09090B; /* True Black */
-  --color-neutral: #18181B; /* Zinc 900 */
-  --color-border: #27272A;  /* Zinc 800 */
-  --color-muted: #A1A1AA;   /* Zinc 400 */
-  --color-text: #FAFAFA;    /* Zinc 50 */
+  --animate-blob: blob 10s infinite;
+  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
-  /* Sleek wide sans-serif for cinematic feel */
-  --font-sans: 'Outfit', 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); opacity: 0.2; }
+    33% { transform: translate(40px, -60px) scale(1.1); opacity: 0.3; }
+    66% { transform: translate(-30px, 30px) scale(0.9); opacity: 0.1; }
+    100% { transform: translate(0px, 0px) scale(1); opacity: 0.2; }
+  }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
 }
 
-/* === Base === */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@utility animation-delay-2000 {
+  animation-delay: 2s;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@utility animation-delay-4000 {
+  animation-delay: 4s;
 }
 
 body {
-  font-family: var(--font-sans);
-  color: var(--color-text);
-  background-color: var(--color-surface);
-  line-height: 1.7;
-}
-
-/* === Typography === */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--color-text);
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-a:hover {
-  color: var(--color-primary-dark);
-}
-
-/* === Utility === */
-.container {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  background-color: var(--color-dark);
+  color: #e2e8f0;
 }
